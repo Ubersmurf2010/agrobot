@@ -59,6 +59,9 @@ class Display():
 			if (self.counter > self.greeting_time):
 				exitStats = True
 
+#0 - 15 initial screen
+#15 - 35 stats
+
 	def initial_screen(self):
 		self.draw.rectangle((0, 0, self.oled.width, self.oled.height), outline=0, fill=0)
 		while(self._exit != True):
@@ -84,7 +87,7 @@ class Display():
 	def show_image(self):
 		self.draw.rectangle((0, 0, self.oled.width, self.oled.height), outline=0, fill=0)
 
-		self.image = Image.open('/bin/autostart-scripts/bentley.png').convert('1')
+		self.image = Image.open('/bin/autostart-scripts/rtc.jpg').convert('1')
 
 		self.oled.image(self.image)
 		self.oled.show()

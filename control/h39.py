@@ -23,7 +23,6 @@ class lightBulb:
 	def __init__(self, pin = LAMP, debug = True):
 		self.debug = debug
 		self.pin = pin
-		print("init lamp")
 
 	def setup(self):
 		GPIO.setup(self.pin, GPIO.OUT)
@@ -31,7 +30,7 @@ class lightBulb:
 
 	def lampOn(self):
                 GPIO.output(self.pin, GPIO.HIGH)
-                #print("lamp On")
+
 	def lampOff(self):
 		GPIO.output(self.pin, GPIO.LOW)
 
@@ -42,7 +41,6 @@ class lightBulb:
 
 class rmotor:
     def __init__(self, debug = False):
-        print("init motors")
         self.debug = debug
 
     GPIO.setup(R1, GPIO.OUT)
@@ -60,15 +58,10 @@ class rmotor:
 
 
     def modify_pwm1(self, pwm_signal, dutycycle, freq):
-        print("modify pwm 1")
-                
         pwm_signal.ChangeDutyCycle(dutycycle)
         pwm_signal.ChangeFrequency(freq)
 
     def modify_pwm2(self, pwm_signal1, dutycycle, freq):
-        
-        print("modify pwm 2")
-                
         pwm_signal1.ChangeDutyCycle(dutycycle)
         pwm_signal1.ChangeFrequency(freq)
 

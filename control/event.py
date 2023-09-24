@@ -40,7 +40,13 @@ class ServoEvent():
 		8: 0,
 		9: 15
 		}
-
+		
+	def cstate_get_angle(self, angle):
+		return angle
+		
+	def cstate_increase_angle(self, angle):
+		return 1
+	
 	def set_angle90(self, channel, required_angle):
 		k = int(ServoController.map(required_angle, 0, 90, 500, 2500))
 		if (self.debug):
@@ -216,3 +222,5 @@ class ServoEvent():
 				self.set_angle180(channel, self.man[select])
 		else:
 			self.man[select] = self.man[select] + value
+
+	
