@@ -118,7 +118,7 @@ class ClientThread(threading.Thread):
 					count = count + 1
 
 				if (len(data) == 26):
-					print(self.r_data)
+					#print(self.r_data)
 					self.r_data = np.frombuffer(data, dtype=np.uint8)
 					if ((np.sum(self.r_data) - self.r_data[25]) % 2) != self.r_data[25]:
 						print(self.r_data)
@@ -292,9 +292,7 @@ class ClientThread(threading.Thread):
 	def setupServo(self):
 		try:
 			self.serv = ServoEvent()
-			sleep(libary.time_calibrate * 3)
-			#self.serv.calibrationR()
-			sleep(library.time_calibrate * 3)
+			#sleep(library.time_calibrate)
 			print("servo: 200")
 		except:
 			print("servo: error 0x40")
