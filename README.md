@@ -1,6 +1,3 @@
-# agrobot
-
-
 # ServoHat
 - Power supply: 6V-12V
 - Servo voltage: 5V
