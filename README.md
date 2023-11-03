@@ -1,3 +1,6 @@
+git clone --single-branch --branch master https://github.com/Ubersmurf2010/agrobot.git
+
+
 # ServoHat
 - Power supply: 6V-12V
 - Servo voltage: 5V
