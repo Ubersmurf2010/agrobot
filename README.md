@@ -1,4 +1,5 @@
 git clone --single-branch --branch master https://github.com/Ubersmurf2010/agrobot.git
+sudo python uglyPwm.py 
 
 
 # ServoHat
