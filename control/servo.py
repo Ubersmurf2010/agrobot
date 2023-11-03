@@ -18,7 +18,7 @@ class ServoController:
     ALL_LED_OFF0 = 0xFC
     ALL_LED_OFF1 = 0xFD
 
-    def __init__(self, address=0x40, debug=False):
+    def __init__(self, address=0x40, debug=True):
         self.bus = smbus.SMBus(1)
         self.address = address
         self.debug = debug
@@ -38,8 +38,8 @@ class ServoController:
         return data
 
     def setPWMFreq(self, freq):
-        frequency = 25000000.0
-        frequency /= 4096.0
+        #frequency = 25000000.0
+        #frequency /= 4096.0
         frequency = float(freq)
         frequency -= 1.0
         if (self.debug):
@@ -64,8 +64,10 @@ class ServoController:
             print("channel: %d LED_ON: %d LED_OFF: %d" % (channel, on, off))
 
     def Set_Pulse(self, channel, pulse):
-        pulse = pulse * 4096 / 20000
         self.SetPWM(channel, 0, int(pulse))
+
+    def Set_DutyCycle(self, channel, dutycycle):
+        self.SetPWM(channel, 0, int(dutycycle * 40.95))
 
     def map(degrees, in_min, in_max, out_min, out_max):
         return (degrees - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
